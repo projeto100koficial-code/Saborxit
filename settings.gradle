@@ -7,7 +7,7 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-    // Esta linha diz que o Gradle deve ignorar repositórios dentro dos build.gradle
+    // Faz o Gradle usar apenas esses repositórios (correto)
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
@@ -16,3 +16,6 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Saborxit"
+
+// 🔥 FALTAVA ISSO AQUI
+include ':app'
