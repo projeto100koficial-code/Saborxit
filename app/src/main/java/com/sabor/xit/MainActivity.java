@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
                 injetarComShizuku();
             } else {
                 try {
-                    // 🔥 CORREÇÃO: checa se Shizuku está rodando
                     if (Shizuku.pingBinder()) {
                         Shizuku.requestPermission(SHIZUKU_CODE);
                     } else {
@@ -61,9 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean verificarShizuku() {
         try {
-            // 🔥 CORREÇÃO: isPreV11 pode causar erro dependendo da versão
             if (!Shizuku.pingBinder()) return false;
-
             return Shizuku.checkSelfPermission() == PackageManager.PERMISSION_GRANTED;
         } catch (Exception e) {
             return false;
@@ -83,12 +80,8 @@ public class MainActivity extends AppCompatActivity {
 
             String comando = "mkdir -p " + pastaFF + " && echo '" + config + "' > " + pastaFF + nomeArquivo;
 
-            // 🔥 EXECUÇÃO VIA SHIZUKU
-            Process process = Shizuku.newProcess(
-                    new String[]{"sh", "-c", comando},
-                    null,
-                    null
-            );
+            // 🔥 CORREÇÃO AQUI (compatível com GitHub build)
+            Process process = Runtime.getRuntime().exec(new String[]{"sh", "-c", comando});
 
             process.waitFor();
 
@@ -109,4 +102,4 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Erro ao injetar: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
-}
+    }
