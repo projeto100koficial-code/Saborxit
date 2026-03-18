@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Garanta que o nome do layout seja activity_main.xml
+        // O arquivo activity_main.xml deve existir em res/layout
         setContentView(R.layout.activity_main);
 
         Button btnInjetar = findViewById(R.id.btnInjetar);
@@ -39,11 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void injetar(Uri treeUri) {
         try {
-            // Acessa a pasta selecionada pelo usuário
             DocumentFile pickedDir = DocumentFile.fromTreeUri(this, treeUri);
             if (pickedDir == null) return;
 
-            // Cria ou sobrescreve o arquivo de configuração
             DocumentFile file = pickedDir.createFile("text/plain", "sabor_xit_v2.cfg");
             if (file == null) throw new Exception("Não foi possível criar o arquivo");
 
@@ -52,18 +50,16 @@ public class MainActivity extends AppCompatActivity {
             RadioButton rbAlta = findViewById(R.id.rbAlta);
             
             String config;
-            // Se a opção ALTA estiver marcada, injeta o 100% CAPA
             if (rbAlta != null && rbAlta.isChecked()) {
                 config = "Aim_Force: 1.0\n" +
                          "Lock_On: Head\n" +
-                         "Smooth: 0.01\n" + // Mira instantânea
-                         "FOV: 360\n" +    // Puxa de qualquer lado
+                         "Smooth: 0.01\n" + 
+                         "FOV: 360\n" +    
                          "No_Recoil: True\n" +
                          "Auto_Headshot: True\n" +
                          "Aim_Assist: True\n" +
-                         "Range_Ignore: True"; // Ignora a distância
+                         "Range_Ignore: True"; 
             } else {
-                // Opção NORMAL (Legit)
                 config = "Aim_Force: 0.50\n" +
                          "Lock_On: Chest\n" +
                          "Smooth: 0.60\n" +
@@ -77,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
 
             Toast.makeText(this, "INJETADO COM SUCESSO!", Toast.LENGTH_LONG).show();
 
-            // ABRE O FREE FIRE AUTOMATICAMENTE
             Intent intentFF = getPackageManager().getLaunchIntentForPackage("com.dts.freefireth");
             if (intentFF != null) {
                 startActivity(intentFF);
@@ -89,5 +84,4 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Erro na Injeção: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
-}
-}
+                }
