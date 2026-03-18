@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.exemplo.fftool'
+    namespace 'com.sabor.xit'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.exemplo.fftool"
+        applicationId "com.sabor.xit"
         minSdk 24
         targetSdk 34
         versionCode 1
@@ -36,9 +36,11 @@ android {
 }
 
 dependencies {
+    // 🔥 SHIZUKU (VERSÃO CORRETA)
     implementation "dev.rikka.shizuku:api:13.1.5"
     implementation "dev.rikka.shizuku:provider:13.1.5"
 
+    // Android básico
     implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'
