@@ -11,14 +11,18 @@ import androidx.documentfile.provider.DocumentFile;
 import java.io.OutputStream;
 
 public class MainActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Garanta que o nome do layout seja activity_main.xml
         setContentView(R.layout.activity_main);
-        
+
         Button btnInjetar = findViewById(R.id.btnInjetar);
+        
         if (btnInjetar != null) {
             btnInjetar.setOnClickListener(v -> {
+                // Abre o seletor de pastas do Android (SAF)
                 Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
                 startActivityForResult(intent, 42);
             });
@@ -35,32 +39,35 @@ public class MainActivity extends AppCompatActivity {
 
     private void injetar(Uri treeUri) {
         try {
+            // Acessa a pasta selecionada pelo usuário
             DocumentFile pickedDir = DocumentFile.fromTreeUri(this, treeUri);
             if (pickedDir == null) return;
 
+            // Cria ou sobrescreve o arquivo de configuração
             DocumentFile file = pickedDir.createFile("text/plain", "sabor_xit_v2.cfg");
-            if (file == null) throw new Exception("Erro ao criar arquivo");
+            if (file == null) throw new Exception("Não foi possível criar o arquivo");
 
             OutputStream out = getContentResolver().openOutputStream(file.getUri());
 
             RadioButton rbAlta = findViewById(R.id.rbAlta);
-            RadioButton rbMedia = findViewById(R.id.rbMedia);
             
             String config;
+            // Se a opção ALTA estiver marcada, injeta o 100% CAPA
             if (rbAlta != null && rbAlta.isChecked()) {
-                // MODO 100% CAPA: FOCO EM CURTA/MÉDIA DISTÂNCIA
                 config = "Aim_Force: 1.0\n" +
                          "Lock_On: Head\n" +
-                         "Smooth: 0.01\n" +
-                         "FOV: 360\n" +
+                         "Smooth: 0.01\n" + // Mira instantânea
+                         "FOV: 360\n" +    // Puxa de qualquer lado
                          "No_Recoil: True\n" +
                          "Auto_Headshot: True\n" +
                          "Aim_Assist: True\n" +
-                         "Range_Ignore: True";
-            } else if (rbMedia != null && rbMedia.isChecked()) {
-                config = "Aim_Force: 0.75\nLock_On: Head\nSmooth: 0.25\nFOV: 120";
+                         "Range_Ignore: True"; // Ignora a distância
             } else {
-                config = "Aim_Force: 0.50\nLock_On: Chest\nSmooth: 0.50\nFOV: 90";
+                // Opção NORMAL (Legit)
+                config = "Aim_Force: 0.50\n" +
+                         "Lock_On: Chest\n" +
+                         "Smooth: 0.60\n" +
+                         "FOV: 90";
             }
 
             if (out != null) {
@@ -68,14 +75,19 @@ public class MainActivity extends AppCompatActivity {
                 out.close();
             }
 
-            Toast.makeText(this, "100% CAPA ATIVADO!", Toast.LENGTH_LONG).show();
-            
-            Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.dts.freefireth");
-            if (launchIntent != null) {
-                startActivity(launchIntent);
+            Toast.makeText(this, "INJETADO COM SUCESSO!", Toast.LENGTH_LONG).show();
+
+            // ABRE O FREE FIRE AUTOMATICAMENTE
+            Intent intentFF = getPackageManager().getLaunchIntentForPackage("com.dts.freefireth");
+            if (intentFF != null) {
+                startActivity(intentFF);
+            } else {
+                Toast.makeText(this, "Free Fire não encontrado!", Toast.LENGTH_SHORT).show();
             }
+
         } catch (Exception e) {
-            Toast.makeText(this, "Erro na Injeção!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Erro na Injeção: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
-                  }
+}
+}
