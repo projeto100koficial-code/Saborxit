@@ -12,8 +12,8 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
 
-        // 🔥 ESSA LINHA RESOLVE O SHIZUKU
-        maven { url 'https://maven.aliyun.com/repository/public' }
+        // 🔥 NECESSÁRIO pro Shizuku
+        maven { url 'https://jitpack.io' }
     }
 }
 
