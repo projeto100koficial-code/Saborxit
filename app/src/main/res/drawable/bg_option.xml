@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com">
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- Quando a opção ESTÁ selecionada -->
     <item android:state_checked="true">
         <shape>
-            <solid android:color="#33EBBD2D" />
-            <stroke android:width="2dp" android:color="#EBBD2D" />
+            <solid android:color="#33EBBD2D" /> <!-- Amarelo com transparência -->
+            <stroke android:width="2dp" android:color="#EBBD2D" /> <!-- Borda amarela forte -->
             <corners android:radius="15dp" />
         </shape>
     </item>
+    
+    <!-- Quando a opção NÃO está selecionada (Padrão) -->
     <item>
         <shape>
-            <solid android:color="#1A1A1A" />
-            <stroke android:width="1dp" android:color="#333333" />
+            <solid android:color="#1A1A1A" /> <!-- Fundo cinza bem escuro -->
+            <stroke android:width="1dp" android:color="#333333" /> <!-- Borda discreta -->
             <corners android:radius="15dp" />
         </shape>
     </item>
+    
 </selector>
