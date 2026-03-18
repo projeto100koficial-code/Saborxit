@@ -1,16 +1,8 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.2.2'
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
+dependencies {
+    def shizuku_version = "13.1.0"
+    implementation "dev.rikka.shizuku:api:$shizuku_version"
+    implementation "dev.rikka.shizuku:provider:$shizuku_version"
+    
+    // Opcional: facilita o uso em Activities/Fragments
+    implementation "dev.rikka.shizuku:shared:$shizuku_version"
 }
