@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com">
+
     <queries>
         <package android:name="com.dts.freefireth" />
     </queries>
+
     <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
         android:label="Sabor Xit"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+
         <activity
             android:name="com.sabor.xit.MainActivity"
             android:exported="true">
@@ -14,5 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 </manifest>
