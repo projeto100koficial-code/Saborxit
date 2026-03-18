@@ -1,11 +1,10 @@
 plugins {
-    // Adicionei as versões necessárias para o Gradle encontrar os plugins
     id 'com.android.application' version '8.1.1'
     id 'org.jetbrains.kotlin.android' version '1.9.0'
 }
 
 android {
-    namespace 'com.exemplo.fftool' 
+    namespace 'com.exemplo.fftool'
     compileSdk 34
 
     defaultConfig {
@@ -18,11 +17,24 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    // Adicionado para garantir compatibilidade com o Java 17 (padrão do Gradle 8.2)
+    // ESTE É O BLOCO QUE CORRIGE O ERRO DO MANIFESTO
+    sourceSets {
+        main {
+            // Diz ao Gradle que o Manifesto está dentro de app/src/main/
+            manifest.srcFile 'app/src/main/AndroidManifest.xml'
+            
+            // Define onde estão as pastas de código e recursos
+            java.srcDirs = ['app/src/main/java', 'app/src/main/kotlin']
+            res.srcDirs = ['app/src/main/res']
+            assets.srcDirs = ['app/src/main/assets']
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+
     kotlinOptions {
         jvmTarget = '17'
     }
@@ -33,7 +45,7 @@ dependencies {
     implementation "dev.rikka.shizuku:api:13.1.0"
     implementation "dev.rikka.shizuku:provider:13.1.0"
     
-    // Dependências padrão do Android
+    // Dependências essenciais
     implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'
