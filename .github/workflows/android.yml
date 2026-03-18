@@ -20,14 +20,11 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      - name: ⚙️ Dar permissão ao gradlew
-        run: chmod +x ./gradlew
-
-      - name: 🔥 Build APK (corrigido)
+      - name: 🔥 Build APK
         run: |
-          ./gradlew clean
-          ./gradlew build --refresh-dependencies
-          ./gradlew assembleDebug
+          gradle clean
+          gradle build --refresh-dependencies
+          gradle assembleDebug
 
       - name: 📦 Upload APK
         uses: actions/upload-artifact@v4
