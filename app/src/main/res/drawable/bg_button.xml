@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com">
-    <solid android:color="#EBBD2D" />
+    <!-- Cor de fundo da opção -->
+    <solid android:color="#1A1A1A" /> <!-- Sugestão: Use uma cor escura para o texto branco aparecer -->
+    
+    <!-- Bordas arredondadas -->
     <corners android:radius="15dp" />
+    
+    <!-- Borda amarela (opcional, para dar destaque) -->
+    <stroke
+        android:width="2dp"
+        android:color="#EBBD2D" />
 </shape>
