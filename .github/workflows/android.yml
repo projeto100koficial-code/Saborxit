@@ -9,20 +9,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout do código
+      - name: 📥 Checkout
         uses: actions/checkout@v3
 
-      - name: ☕ Instalar Java (JDK 17)
+      - name: ☕ Setup Java
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: 🤖 Instalar Android SDK
+      - name: ⚙️ Instalar Gradle 8.2 (CORRETO)
+        uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: 8.2
+
+      - name: 🤖 Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      # 🚫 SEM gradlew (usando gradle direto)
-      - name: 🏗️ Build Project
+      - name: 🏗️ Build
         run: |
           gradle clean
           gradle build --refresh-dependencies
