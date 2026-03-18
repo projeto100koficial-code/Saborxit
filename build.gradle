@@ -13,6 +13,8 @@ android {
         targetSdk 34
         versionCode 1
         versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     sourceSets {
@@ -34,18 +36,13 @@ android {
     }
 }
 
-// Repositórios repetidos aqui para garantir que o build encontre as libs
-repositories {
-    google()
-    mavenCentral()
-}
+// ATENÇÃO: NÃO COLOQUE O BLOCO REPOSITORIES AQUI. 
+// ELE JÁ ESTÁ NO SETTINGS.GRADLE.
 
 dependencies {
-    // Shizuku - Mudança para as versões estáveis e bibliotecas necessárias
     implementation "dev.rikka.shizuku:api:13.1.0"
     implementation "dev.rikka.shizuku:provider:13.1.0"
     
-    // Essenciais Android
     implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'
