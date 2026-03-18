@@ -11,9 +11,6 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-
-        // 🔥 necessário pro Shizuku
-        maven { url 'https://jitpack.io' }
     }
 }
 
