@@ -3,8 +3,7 @@ plugins {
 }
 
 android {
-    // ESSA LINHA É A MAIS IMPORTANTE PARA O GRADLE 8.2
-    namespace 'com.saborxit.vip' 
+    namespace 'com.saborxit.vip'
     compileSdk 33
 
     defaultConfig {
@@ -23,7 +22,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -35,3 +34,4 @@ dependencies {
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 }
+
