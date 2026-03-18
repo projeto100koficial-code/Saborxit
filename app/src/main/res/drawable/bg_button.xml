@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com">
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Cor de fundo da opção -->
     <solid android:color="#1A1A1A" /> <!-- Sugestão: Use uma cor escura para o texto branco aparecer -->
     
