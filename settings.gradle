@@ -7,8 +7,8 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-    // Faz o Gradle usar apenas esses repositórios (correto)
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    // 🔥 evita conflito e permite baixar libs normalmente
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
         google()
         mavenCentral()
@@ -16,6 +16,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Saborxit"
-
-// 🔥 FALTAVA ISSO AQUI
 include ':app'
