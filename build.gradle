@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.exemplo.fftool'
+    namespace 'com.exemplo.fftool' 
     compileSdk 34
 
     defaultConfig {
@@ -13,17 +13,13 @@ android {
         targetSdk 34
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    // ESTE É O BLOCO QUE CORRIGE O ERRO DO MANIFESTO
+    // CONFIGURAÇÃO MANUAL DE PASTAS (O "PULO DO GATO")
     sourceSets {
         main {
-            // Diz ao Gradle que o Manifesto está dentro de app/src/main/
+            // Como seus arquivos estão dentro da pasta 'app', apontamos o caminho exato:
             manifest.srcFile 'app/src/main/AndroidManifest.xml'
-            
-            // Define onde estão as pastas de código e recursos
             java.srcDirs = ['app/src/main/java', 'app/src/main/kotlin']
             res.srcDirs = ['app/src/main/res']
             assets.srcDirs = ['app/src/main/assets']
@@ -45,9 +41,8 @@ dependencies {
     implementation "dev.rikka.shizuku:api:13.1.0"
     implementation "dev.rikka.shizuku:provider:13.1.0"
     
-    // Dependências essenciais
+    // Bibliotecas Android Essenciais
     implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 }
