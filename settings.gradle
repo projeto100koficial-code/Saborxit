@@ -7,11 +7,13 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-    // 🔥 evita conflito e permite baixar libs normalmente
     repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
         google()
         mavenCentral()
+
+        // 🔥 ESSA LINHA RESOLVE O SHIZUKU
+        maven { url 'https://maven.aliyun.com/repository/public' }
     }
 }
 
