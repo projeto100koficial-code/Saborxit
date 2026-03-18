@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#080808"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SABOR XIT"
+            android:textColor="#EBBD2D"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:layout_marginTop="50dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="V 2 . 0  S Y S T E M"
+            android:textColor="#808080"
+            android:textSize="10sp"
+            android:letterSpacing="0.5"
+            android:layout_marginBottom="60dp" />
+
+        <RadioGroup
+            android:id="@+id/levelGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rbAlta"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:background="@drawable/bg_option"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="AUXÍLIO ALTO (100% CAPA)"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_marginBottom="15dp" />
+
+            <RadioButton
+                android:id="@+id/rbMedia"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:background="@drawable/bg_option"
+                android:button="@null"
+                android:gravity="center"
+                android:text="AUXÍLIO NORMAL (LEGIT)"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_marginBottom="40dp" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnInjetar"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="@drawable/bg_button"
+            android:backgroundTint="#EBBD2D"
+            android:text="INJETAR E ABRIR JOGO"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>
