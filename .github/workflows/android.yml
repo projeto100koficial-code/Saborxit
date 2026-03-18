@@ -18,7 +18,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: ⚙️ Instalar Gradle 8.2 (CORRETO)
+      - name: ⚙️ Usar Gradle 8.2
         uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 8.2
@@ -26,7 +26,7 @@ jobs:
       - name: 🤖 Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: 🏗️ Build
+      - name: 🏗️ Build APK
         run: |
           gradle clean
           gradle build --refresh-dependencies
