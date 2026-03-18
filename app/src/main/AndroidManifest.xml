@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:a="http://schemas.android.com/apk/res/android" package="com.sabor.xit">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
     <queries>
-        <package a:name="com.dts.freefireth" />
+        <package android:name="com.dts.freefireth" />
     </queries>
+
     <application
-        a:label="Sabor Xit"
-        a:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        android:allowBackup="true"
+        android:label="Sabor Xit"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+
         <activity
-            a:name="com.sabor.xit.MainActivity"
-            a:exported="true">
+            android:name="com.sabor.xit.MainActivity"
+            android:exported="true">
             <intent-filter>
-                <action a:name="android.intent.action.MAIN" />
-                <category a:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 </manifest>
