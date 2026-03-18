@@ -1,8 +1,28 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.exemplo.fftool' // ALERTA: Use o SEU package name aqui
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.exemplo.fftool"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
 dependencies {
-    def shizuku_version = "13.1.0"
-    implementation "dev.rikka.shizuku:api:$shizuku_version"
-    implementation "dev.rikka.shizuku:provider:$shizuku_version"
+    // Shizuku API
+    implementation "dev.rikka.shizuku:api:13.1.0"
+    implementation "dev.rikka.shizuku:provider:13.1.0"
     
-    // Opcional: facilita o uso em Activities/Fragments
-    implementation "dev.rikka.shizuku:shared:$shizuku_version"
+    // Dependências padrão do Android (essenciais)
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
 }
